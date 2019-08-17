@@ -29,3 +29,7 @@ Codility-Lessons/Lesson 04 - Counting Elements/PermCheck/PermCheck/pch.cpp
 Codility-Lessons/Lesson 04 - Counting Elements/MissingInteger/MissingInteger/pch.cpp
 Codility-Lessons/Lesson 04 - Counting Elements/FrogRiverOne/FrogRiverOne/pch.cpp
 Codility-Lessons/Lesson 04 - Counting Elements/MaxCounters/MaxCounters/pch.cpp
+*.opendb
+Codility-Lessons/Lesson 05 - Prefix Sums/CountDiv/CountDiv/pch.cpp
+Codility-Lessons/Lesson 05 - Prefix Sums/PassingCars/PassingCars/pch.cpp
+Codility-Lessons/Lesson 05 - Prefix Sums/GenomicRangeQuery/GenomicRangeQuery/GenomicRangeQuery/pch.cpp
