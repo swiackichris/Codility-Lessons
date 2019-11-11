@@ -7,22 +7,17 @@
 
 int solution(vector<int> &A) {
 	// write your code in C++14 (g++ 6.2.0)
-	int N = A.size();
-	vector<int> counter(N + 1);
+
 	sort(A.begin(), A.end());
+	int N = A.size();
+	int number = 1;
 
 	for (int i = 0; i < N; i++)
 	{
-		if (A[i] > 0 && A[i] <= N)
-		{
-			counter[A[i]] = 1;
-		}
+		if (A[i] == number) number++;
 	}
 
-	for (int i = 1; i < N + 1; i++)
-	{
-		if (counter[i] == 0) { return i; }
-	}
+	return number;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
