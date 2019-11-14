@@ -4,52 +4,40 @@
 #include "pch.h"
 #include <iostream>
 
-int solution(vector<int> &A) {
+int solution(vector<int>& A) {
 	// write your code in C++14 (g++ 6.2.0)
+	int beginPos = 0;
 	int N = A.size();
-	float sum = A[0];
-	int sumCount = 1;
-	float twoSum = 0;
-	int twoSumCount = 0;
-	int startPos = 0;
-	float currentAvg = 10000;
-	float twoSumAvg = 10000;
-	float maxAvg = 10000;
+	double minAvg = 1e9;
+	double currentAvg = 1e9;
+	double sum = A[0];
+	int count = 1;
+
+	double twoSum = A[0];
 
 	for (int i = 1; i < N; i++)
 	{
-		// Calculate current average
 		sum += A[i];
-		sumCount++;
-		currentAvg = sum / sumCount;
-		if (currentAvg < maxAvg)
+		twoSum += A[i];
+		count++;
+		currentAvg = sum / count;
+
+		if (twoSum / 2 < currentAvg)
 		{
-			startPos = i + 1 - sumCount;
-			maxAvg = currentAvg;
+			sum = twoSum;
+			currentAvg = twoSum / 2;
+			count = 2;
 		}
 
-		// Calculate average of the newest two integers
-		twoSum += A[i];
-		twoSumCount++;
-		if (twoSumCount == 2)
+		if (currentAvg < minAvg)
 		{
-			twoSumAvg = twoSum / 2;
-			if (twoSumAvg < maxAvg)
-			{
-				maxAvg = twoSumAvg;
-				startPos = i - 1;
-			}
-			if (twoSumAvg < currentAvg)
-			{
-				currentAvg = twoSumAvg;
-				sum = twoSum;
-				sumCount = twoSumCount;
-			}
-			twoSum -= A[i - 1];
-			twoSumCount--;
+			minAvg = currentAvg;
+			beginPos = i - count + 1;
 		}
+		twoSum -= A[i - 1];
 	}
-	return startPos;
+
+	return beginPos;
 }
 
 
