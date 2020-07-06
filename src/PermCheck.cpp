@@ -1,26 +1,21 @@
 // PermCheck.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include "pch.h"
-#include <iostream>
+#include <algorithm>
 
-int solution(int N) {
-	// write your code in C++14 (g++ 6.2.0)
-	bool gapBegin = false;
-	int currentLength = 0;
-	int gapLength = 0;
-	for (int i = 0; i < 32; i++)
-	{
-		if (N % 2 == 1) { gapBegin = true; }
-		if (gapBegin && N % 2 == 0) { currentLength++; }
-		if (N % 2 == 1 && gapBegin)
-		{
-			if (currentLength > gapLength) { gapLength = currentLength; }
-			currentLength = 0;
-		}
-		N /= 2;
-	}
-	return gapLength;
+int solution(vector<int> &A) {
+    // write your code in C++14 (g++ 6.2.0)
+    sort(A.begin(), A.end());
+    
+    int number = 1;
+    
+    for(int i : A)
+    {
+        if(i != number) return 0;
+        number++;
+    }
+    
+    return 1;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
