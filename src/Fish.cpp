@@ -14,26 +14,14 @@ int solution(vector<int>& A, vector<int>& B) {
 
 	for (int i = 0; i < N; i++)
 	{
-		if (B[i] == 1)
-		{
-			ones.push(A[i]);
-		}
+		if (B[i] == 1) ones.push(A[i]);
 
-		while (!ones.empty() && ones.top() < A[i])
-		{
-			ones.pop();
-		}
+		while (!ones.empty() && ones.top() < A[i]) ones.pop();
 
 		if (ones.empty()) fish++;
 	}
-
-	while (!ones.empty())
-	{
-		fish++;
-		ones.pop();
-	}
-
-	return fish;
+	
+	return fish + ones.size();
 }
 
 
