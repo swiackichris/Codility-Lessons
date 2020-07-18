@@ -15,14 +15,13 @@ int solution(string &S) {
 
 	for (int i = 0; i < N; ++i) {
 		char currentChar = S[i];
-		//    cout << c << endl;
 		if (currentChar == '(' || currentChar == '{' || currentChar == '[' ) 
 		{
-			chars.push_back(c);
+			chars.push_back(currentChar);
 		}
 		else {
 			if (chars.empty()) return 0;
-			char t = chars.back();
+			char lastChar = chars.back();
 
 			if (currentChar == ')' && lastChar != '(') return 0;
 			if (currentChar == '}' && lastChar != '{') return 0;
