@@ -1,7 +1,6 @@
 // ChocolatesByNumbers.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include "pch.h"
 #include <iostream>
 
 int gcd(int a, int b)
@@ -16,7 +15,6 @@ int solution(int N, int M) {
 }
 
 
-// For example, for the input(1000000000, 1) the solution terminated unexpectedly.
 
 
 
