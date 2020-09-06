@@ -1,21 +1,17 @@
-#include <stack>
-#include <algorithm>
-
 int solution(vector<int> &A, vector<int> &B) {
     // write your code in C++14 (g++ 6.2.0)
     
-    int size = 0;
-    stack<int>last;
+    int segments = 0;
+    int lastEnd = -1;
     
     for(int i = 0; i < A.size(); i++)
     {
-        if(last.empty() || A[i] > last.top())
+        if(A[i] > lastEnd) 
         {
-            if(!last.empty()) last.pop();
-            last.push(B[i]);
-            size++;
+            segments++;
+            lastEnd = B[i];
         }
     }
     
-    return size;
+    return segments;
 }
